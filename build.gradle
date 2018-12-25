@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.0.7.RELEASE'
+}
+
+group 'com.leavesbasil.bot'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.telegram:telegrambots-spring-boot-starter:4.1"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
