@@ -19,9 +19,12 @@ public class GroupAccountantBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
+            String firstName = update.getMessage().getFrom().getFirstName();
+            String text = update.getMessage().getText();
+            String answer = String.format("Hello %s! I received your message:%s, but I don't work yet!", firstName, text);
             SendMessage message = new SendMessage()
                     .setChatId(update.getMessage().getChatId())
-                    .setText(String.format("Message:%s received, but I don't work yet!", update.getMessage().getText()));
+                    .setText(answer);
             try {
                 execute(message);
             } catch (TelegramApiException e) {
