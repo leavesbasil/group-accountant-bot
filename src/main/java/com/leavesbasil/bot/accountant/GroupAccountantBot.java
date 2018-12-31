@@ -1,19 +1,20 @@
 package com.leavesbasil.bot.accountant;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+@Component
 public class GroupAccountantBot extends TelegramLongPollingBot {
 
-    private final String name;
-    private final String token;
+    @Value("${spring.telegram.bot.name}")
+    private String name;
 
-    public GroupAccountantBot(String name, String token) {
-        this.name = name;
-        this.token = token;
-    }
+    @Value("${spring.telegram.bot.token}")
+    private String token;
 
     @Override
     public void onUpdateReceived(Update update) {
