@@ -24,15 +24,15 @@ public class Buy extends BotCommand {
      * Construct a command
      */
     public Buy() {
-        super("buy", "add purchase with parameters: $name $price");
+        super("buy", "add purchase with: [name] [price]");
     }
 
     @Override
     public void execute(AbsSender absSender, User user, Chat chat, String[] arguments) {
         Accountant accountant = accountantManager.getAccountant(chat);
-        accountant.addPurchase(user, arguments[0], BigDecimal.valueOf(Double.valueOf(arguments[1])));
+        accountant.addPurchase(user, arguments[0], new BigDecimal(arguments[1]));
 
-        String answer = String.format("Purchase(%s) has add!", arguments[0]);
+        String answer = String.format("Purchase (%s) added!", arguments[0]);
         SendMessage message = new SendMessage()
                 .setChatId(chat.getId())
                 .setText(answer);
