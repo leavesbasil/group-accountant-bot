@@ -15,6 +15,7 @@ import java.util.List;
 @Component
 public class GroupAccountantBot extends TelegramLongPollingCommandBot {
 
+    private static final String NON_COMMAND_UPDATE_ANSWER = "Hello %s! I received your message:%s, but I work only by commands!";
     private final String token;
 
     public GroupAccountantBot(@Value("${spring.telegram.bot.name}") String name,
@@ -30,7 +31,7 @@ public class GroupAccountantBot extends TelegramLongPollingCommandBot {
         Long chatId = update.getMessage().getChatId();
         String firstName = update.getMessage().getFrom().getFirstName();
         String text = update.getMessage().getText();
-        String answer = String.format("Hello %s! I received your message:%s, but I work only by commands!", firstName, text);
+        String answer = String.format(NON_COMMAND_UPDATE_ANSWER, firstName, text);
 
         SendMessage message = new SendMessage()
                 .setChatId(chatId)

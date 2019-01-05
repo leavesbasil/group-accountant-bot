@@ -17,6 +17,9 @@ import java.math.BigDecimal;
 @Component
 public class Buy extends BotCommand {
 
+    private static final String COMMAND_IDENTIFIER = "buy";
+    private static final String COMMAND_DESCRIPTION = "add purchase. Use /buy [command] [name] [price] for add new item";
+
     @Autowired
     private AccountantManager accountantManager;
 
@@ -24,7 +27,7 @@ public class Buy extends BotCommand {
      * Construct a command
      */
     public Buy() {
-        super("buy", "add purchase with: [name] [price]");
+        super(COMMAND_IDENTIFIER, COMMAND_DESCRIPTION);
     }
 
     @Override
