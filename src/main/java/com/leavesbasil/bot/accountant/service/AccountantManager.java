@@ -23,4 +23,12 @@ public class AccountantManager {
         }
         return accountant;
     }
+
+    public boolean remove(Chat chat) {
+        Accountant accountant = accountants.get(chat.getId());
+        if (accountant != null) {
+            accountants.remove(chat.getId());
+        }
+        return false;
+    }
 }
