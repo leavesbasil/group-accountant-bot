@@ -31,7 +31,6 @@ public class GroupAccountantBot extends TelegramLongPollingCommandBot {
         String firstName = update.getMessage().getFrom().getFirstName();
         String text = update.getMessage().getText();
         String answer = String.format("Hello %s! I received your message:%s, but I work only by commands!", firstName, text);
-
         SendMessage message = new SendMessage()
                 .setChatId(chatId)
                 .setText(answer);

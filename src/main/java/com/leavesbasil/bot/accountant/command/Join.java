@@ -15,6 +15,9 @@ import org.telegram.telegrambots.meta.logging.BotLogger;
 @Component
 public class Join extends BotCommand {
 
+    private static final String COMMAND_IDENTIFIER = "join";
+    private static final String COMMAND_DESCRIPTION = "join to accounting group";
+
     @Autowired
     private AccountantManager accountantManager;
 
@@ -22,7 +25,7 @@ public class Join extends BotCommand {
      * Construct a command
      */
     public Join() {
-        super("join", "join to accounting group");
+        super(COMMAND_IDENTIFIER, COMMAND_DESCRIPTION);
     }
 
     @Override
