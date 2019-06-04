@@ -4,9 +4,7 @@ import org.junit.Test;
 import org.telegram.telegrambots.meta.api.objects.User;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.Set;
-import java.util.TreeSet;
 
 import static org.junit.Assert.assertEquals;
 
@@ -52,9 +50,4 @@ public class InMemoryAccountantTest {
         assertEquals(2, payments.size());
     }
 
-    @Test
-    public void name() {
-        TreeSet<Integer> treeSet = new TreeSet<>(Arrays.asList(10, 2, 10, 1, 1, 10, -2));
-        treeSet.forEach(System.out::println);
-    }
 }
