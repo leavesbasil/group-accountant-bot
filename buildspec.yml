@@ -4,3 +4,6 @@ phases:
   build:
     commands:
       - gradle clean build
+artifacts:
+  files:
+    - '**/*'
